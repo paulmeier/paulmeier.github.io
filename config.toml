@@ -1,0 +1,4 @@
+baseURL = "https://paulmeier.dev/"
+languageCode = "en-us"
+title = "PaulMeier"
+theme = "console"
