@@ -1,10 +1,9 @@
 name: FeatureCI
 on:
   push:
-    branches:
-      - '*'
-      - '!master'
-      - '!gh_pages'
+    branches-ignore:
+        - "master"
+        - "gh_pages"
 jobs:
   build:
     runs-on: ubuntu-latest
