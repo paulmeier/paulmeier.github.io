@@ -2,7 +2,7 @@ name: FeatureCI
 on:
   push:
     branches-ignore:
-        - "master"
+        - "main"
         - "gh_pages"
 jobs:
   build:
