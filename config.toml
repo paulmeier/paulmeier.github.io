@@ -1,4 +1,5 @@
+# baseURL = "https://paulmeier-github-io.herokuapp.com/"
 baseURL = "https://www.paulmeier.dev"
 languageCode = "en-us"
 title = "Paul Meier"
-theme = "cactus"
+theme = "hugo-theme-console"
