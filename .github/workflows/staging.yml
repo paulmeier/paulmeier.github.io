@@ -22,5 +22,5 @@ jobs:
             HUGO_BASEURL
         env:
           HUGO_WATCH: true
-          HUGO_THEME: "hugo-theme-console"
+          HUGO_THEME: "hugo-PaperMod"
           HUGO_BASEURL: ${{secrets.HEROKU_BASEURL}}
