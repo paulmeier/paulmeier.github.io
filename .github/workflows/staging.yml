@@ -3,12 +3,27 @@ name: Stage
 on:
   push:
     branches:
-      - dev
+      - '**'
+      - '!main'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.76.3'
+          extended: true
+
+      - name: Build
+        run: hugo --environment staging
+
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.5.7
         with:
@@ -16,11 +31,3 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}"
           usedocker: true
-          docker_build_args: |
-            HUGO_WATCH
-            HUGO_THEME
-            HUGO_BASEURL
-        env:
-          HUGO_WATCH: true
-          HUGO_THEME: "hugo-PaperMod"
-          HUGO_BASEURL: ${{secrets.HEROKU_BASEURL}}

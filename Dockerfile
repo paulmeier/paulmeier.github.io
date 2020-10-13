@@ -1,12 +1,6 @@
-FROM jojomi/hugo:0.74
-ARG HUGO_WATCH
-ARG HUGO_THEME
-ARG HUGO_BASEURL
+FROM nginx
 
-ENV HUGO_WATCH=${HUGO_WATCH}
-ENV HUGO_THEME=${HUGO_THEME}
-ENV HUGO_BASEURL=${HUGO_BASEURL}
+COPY public/ /usr/share/nginx/html
+COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 
-COPY . /src
-
-CMD ["sh","-c", "/run.sh --port=${PORT} --appendPort=false"]
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'

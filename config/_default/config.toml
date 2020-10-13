@@ -1,0 +1,4 @@
+baseURL = ""
+languageCode = "en-us"
+title = "Paul Meier"
+theme = "hugo-PaperMod"
