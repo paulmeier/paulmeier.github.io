@@ -1,4 +1,4 @@
-baseURL = "https://www.paulmeier.dev/"
+baseURL = ""
 languageCode = "en-us"
 title = "Paul Meier"
 theme = "hugo-PaperMod"
